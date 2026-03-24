@@ -1,0 +1,88 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "names"
+    label: "African Names"
+    label_singular: "Name"
+    folder: "_names"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: name
+    summary: "{{name}} — {{origin}}, {{country}}"
+    fields:
+      - label: "Name"
+        name: "name"
+        widget: "string"
+        hint: "The African name exactly as it should appear"
+
+      - label: "Phonetic Spelling"
+        name: "phonetic"
+        widget: "string"
+        hint: "How to pronounce it in English letters — e.g. ah-MAH-rah"
+        required: false
+
+      - label: "Language / Ethnic Origin"
+        name: "origin"
+        widget: "string"
+        hint: "e.g. Igbo, Yoruba, Akan, Zulu"
+        required: false
+
+      - label: "Country"
+        name: "country"
+        widget: "string"
+        hint: "e.g. Nigeria, Ghana, South Africa"
+        required: false
+
+      - label: "Meaning"
+        name: "meaning"
+        widget: "text"
+        hint: "The full meaning and any cultural context"
+
+      - label: "Syllables"
+        name: "syllables"
+        widget: "string"
+        hint: "Separate each syllable with a hyphen — e.g. A-ma-ra or O-lu-wa-seun"
+        required: false
+
+      - label: "Region"
+        name: "region"
+        widget: "select"
+        options:
+          - "West Africa"
+          - "East Africa"
+          - "Southern Africa"
+          - "North Africa"
+          - "Central Africa"
+        required: false
+
+      - label: "Gender"
+        name: "gender"
+        widget: "select"
+        options:
+          - "Male"
+          - "Female"
+          - "Unisex"
+        required: false
+
+      - label: "Audio Recording"
+        name: "audio_url"
+        widget: "file"
+        hint: "Upload an audio recording of the name being pronounced"
+        required: false
+        media_folder: "/public/uploads/audio"
+        public_folder: "/uploads/audio"
+
+      - label: "Status"
+        name: "status"
+        widget: "select"
+        default: "approved"
+        options:
+          - label: "Approved — visible on website"
+            value: "approved"
+          - label: "Pending — hidden from website"
+            value: "pending"

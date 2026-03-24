@@ -1,0 +1,11 @@
+{
+  "name": "pronounce-africa",
+  "version": "1.0.0",
+  "description": "Pronounce Africa — African name pronunciation website",
+  "scripts": {
+    "build": "node build-names.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
